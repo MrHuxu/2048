@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 require 'colored'
 
+=======
+>>>>>>> 632738008de3abe26e58d546b05872e81c9e09ef
 class Game2048
   attr_reader :board, :win_flag, :lose_flag, :move_flag
   def initialize
@@ -21,6 +24,7 @@ class Game2048
     puts "\n\n     ======== 2048 by TDFJ =======\n\n"
     0.upto(3) do |i1|
       ((4 * i1)..(4 * i1 + 3)).each do |i2| 
+<<<<<<< HEAD
         tmp_str = @board[i2].to_s
         (4 - @board[i2].to_s.length).times { tmp_str = ' ' + tmp_str }
         case @board[i2]
@@ -39,6 +43,10 @@ class Game2048
         else print tmp_str.reversed
         end
         print '       ' 
+=======
+        (4 - @board[i2].to_s.length).times { print ' ' }
+        print @board[i2], '       ' 
+>>>>>>> 632738008de3abe26e58d546b05872e81c9e09ef
       end
       print "\n\n\n\n"
     end
@@ -114,6 +122,7 @@ class Game2048
       end
     end
   end
+<<<<<<< HEAD
 
   def run
     self.print_borad
@@ -134,3 +143,25 @@ end
 
 game2048 = Game2048.new
 game2048.run
+=======
+end
+
+game2048 = Game2048.new
+game2048.print_borad
+input = gets.chomp
+while input != 'q'
+  case input
+  when "\e[A" then
+    game2048.step('up')
+  when "\e[B" then
+    game2048.step('down')
+  when "\e[D" then
+    game2048.step('left')
+  when "\e[C" then
+    game2048.step('right')
+  end
+  game2048.create_piece if game2048.move_flag
+  game2048.print_borad
+  input = gets.chomp
+end
+>>>>>>> 632738008de3abe26e58d546b05872e81c9e09ef
